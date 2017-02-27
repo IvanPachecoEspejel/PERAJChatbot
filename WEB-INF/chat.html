@@ -42,7 +42,7 @@
                             </nav>
                         </div>
                     </div>
-                    <div class="inner cover chatcontainer">
+                    <div class="inner cover chatcontainer" id="chatContaniner">
                     </div>
                     <div class="row" style="padding-top: 30px;">
                         <div class="input-group">
@@ -77,15 +77,15 @@
             function sendMessage(){
                 bot.ask(document.getElementById("txtMessage").value, function (err, response) {
                     var msgMe = document.createElement("div");
-                    msgMe.class="row msgMe";
-                    msgMe.value=document.getElementById("txtMessage").value;
+                    msgMe.className="row msgMe";
+                    msgMe.innerHTML=document.getElementById("txtMessage").value;
 
                     var msgMachine = document.createElement("div");
-                    msgMachine.class="row msgMachine";
-                    msgMachine.value=response;
+                    msgMachine.className="row msgMachine";
+                    msgMachine.innerHTML=response;
 
-                    document.getElementById("txtMessage").appendChild(msgMe);
-                    document.getElementById("txtMessage").appendChild(msgMachine);
+                    document.getElementById("chatContaniner").appendChild(msgMe);
+                    document.getElementById("chatContaniner").appendChild(msgMachine);
 
                   console.log(response); // Will likely be: "Living in a lonely world"
                 });
