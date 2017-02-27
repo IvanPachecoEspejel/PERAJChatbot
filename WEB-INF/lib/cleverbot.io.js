@@ -1,7 +1,7 @@
 if (!window.jQuery) {
     var script = document.createElement('script');
     script.type = "text/javascript";
-    script.src = "https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js";
+    script.src = "jquery-1.11.2.min.js";
     document.getElementsByTagName('head')[0].appendChild(script);
 }
 const cleverbotIO = function (user, key) {
@@ -25,7 +25,7 @@ const cleverbotIO = function (user, key) {
                 this.nick = data.nick;
                 callback(false, this.nick);
             }
-            if (data.status == "Error: reference name already exists") {
+            else if (data.status == "Error: reference name already exists") {
                 callback(false, this.nick);
             }
             else {
