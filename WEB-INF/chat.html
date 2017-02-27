@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+        <meta name="description" content="Chatbot">
+        <meta name="author" content="Ivan Pacheco Espejel">
+
+        <title>IPN Peraj Chatbot</title>
+
+        <!-- Bootstrap core CSS -->
+        <link href="lib/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+        <link href="lib/assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+
+        <!-- Custom styles for this template -->
+        <link href="lib/cover.css" rel="stylesheet">
+
+        <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+        <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+        <script src="lib/assets/js/ie-emulation-modes-warning.js"></script>
+
+        <title>Peraj Cleverbot Chat</title>
+    </hedad>
+    <body>
+        <div class="site-wrapper">
+            <div class="site-wrapper-inner">
+                <div class="cover-container">
+                    <div class="masthead clearfix">
+                        <div class="inner">
+                            <h3 class="masthead-brand">IPN Peraj Cleverbot-Chatbot</h3>
+                            <nav>
+                                <ul class="nav masthead-nav">
+                                    <li class="active"><a href="#">Home</a></li>
+                                    <li><a href="#">Features</a></li>
+                                    <li><a href="#  ">Contact</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                    <div class="inner cover chatcontainer">
+                    </div>
+                    <div class="row" style="padding-top: 30px;">
+                        <div class="input-group">
+                        <input type="text" 
+                            class="form-control"
+                            id="txtMessage"
+                            placeholder="Pregunta algo">
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" type="button" onclick="sendMessage()">
+                                <span class="glyphicon glyphicon-send"></span> Send
+                            </button>
+                        </span>
+                        </div><!-- /input-group -->
+                    </div>
+                    <div class="mastfoot">
+                        <div class="inner">
+                            IPN⁻Peraj-Generación2017
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bootstrap core JavaScript
+        ================================================== -->
+        <!-- Placed at the end of the document so the pages load faster -->
+        <script src="lib/cleverbot.io.min.js"></script>
+        <script src="lib/jquery-1.12.4.min.js"></script>
+        <script type="text/javascript">
+            var bot;
+
+            function sendMessage(){
+                bot.ask(document.getElementById("txtMessage").value, function (err, response) {
+                    var msgMe = document.createElement("div");
+                    msgMe.class="row msgMe";
+                    msgMe.value=document.getElementById("txtMessage").value;
+
+                    var msgMachine = document.createElement("div");
+                    msgMachine.class="row msgMachine";
+                    msgMachine.value=response;
+
+                    document.getElementById("txtMessage").appendChild(msgMe);
+                    document.getElementById("txtMessage").appendChild(msgMachine);
+
+                  console.log(response); // Will likely be: "Living in a lonely world"
+                });
+            }
+
+            function createInstence(){
+                bot = new cleverbot('gzi7Ldxdg2HDRETn','Fly6UttgTtkoijgMFUdjQZ8aIi4KXood');
+                bot.create(function (err, session) {
+                  // session is your session name, it will either be as you set it previously, or cleverbot.io will generate one for you
+
+                  // Woo, you initialized cleverbot.io.  Insert further code here
+                  console.log('Session: '+session);
+                });
+            }
+            $( document ).ready(function() {
+                createInstence();
+            });
+        </script>
+        <script>
+            window.jQuery || document.write('<script src="lib/assets/js/vendor/jquery.min.js"><\/script>')
+        </script>
+        <script src="lib/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+        <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+        <script src="lib/assets/js/ie10-viewport-bug-workaround.js"></script>
+    </body>
+</html>
